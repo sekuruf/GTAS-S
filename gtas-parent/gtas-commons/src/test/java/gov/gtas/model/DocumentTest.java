@@ -36,7 +36,7 @@ public class DocumentTest {
 	}
 
 	@Test
-	public void testInequality() {
+    public void testInequality() {
 
 		Passenger p = new Passenger();
 		p.setId(2L);
@@ -53,8 +53,27 @@ public class DocumentTest {
 		doc2.setIssuanceCountry("foo");
 		doc2.setDocumentType("bar");
 		Assert.assertNotEquals(doc1, doc2);
-		Assert.assertNotEquals(doc1.hashCode(), doc2.hashCode());
+                Assert.assertNotEquals(doc1.hashCode(), doc2.hashCode());
 
-	}
+        }
+
+        @Test
+        public void testInequalityByDocumentType() {
+                Passenger p = new Passenger();
+                p.setId(2L);
+                Document doc1 = new Document();
+                Document doc2 = new Document();
+                doc1.setPassenger(p);
+                doc1.setPassengerId(2L);
+                doc1.setDocumentNumber("1234");
+                doc1.setDocumentType("A");
+                doc2.setPassenger(p);
+                doc2.setPassengerId(2L);
+                doc2.setDocumentNumber("1234");
+                doc2.setDocumentType("B");
+
+                Assert.assertNotEquals(doc1, doc2);
+                Assert.assertNotEquals(doc1.hashCode(), doc2.hashCode());
+        }
 
 }

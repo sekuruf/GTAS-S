@@ -152,17 +152,18 @@ public class Document extends BaseEntity implements PIIObject {
 		return Objects.hash(this.documentNumber, this.messageType, this.documentType, this.passengerId);
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!(obj instanceof Document))
-			return false;
-		final Document other = (Document) obj;
-		return Objects.equals(this.documentNumber, other.documentNumber)
-				&& Objects.equals(this.passengerId, other.passengerId)
-				&& Objects.equals(this.messageType, other.messageType);
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!(obj instanceof Document))
+            return false;
+        final Document other = (Document) obj;
+        return Objects.equals(this.documentNumber, other.documentNumber)
+                && Objects.equals(this.passengerId, other.passengerId)
+                && Objects.equals(this.messageType, other.messageType)
+                && Objects.equals(this.documentType, other.documentType);
+    }
 
 	public Set<Message> getMessages() {
 		return messages;
