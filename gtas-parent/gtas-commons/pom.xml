@@ -22,6 +22,16 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		<repository>
+			<id>eclipse-eclipselink</id>
+			<url>https://download.eclipse.org/rt/eclipselink/maven.repo</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
 	</repositories>
 	<name>GTAS Common Classes</name>
 	<properties>
