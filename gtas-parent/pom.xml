@@ -325,6 +325,7 @@
                 <version>3.0.0-M1</version>
                 <configuration>
                     <skipTests>${skip.unit.tests}</skipTests>
+                    <argLine>@{argLine} --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.desktop/java.awt.font=ALL-UNNAMED</argLine>
                 </configuration>
 			    <dependencies>
 			        <dependency>
