@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import org.junit.After;
+import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
 import org.kie.api.KieBase;
@@ -34,7 +35,17 @@ public class DrlRuleFileBuilderTest {
 
 	@Before
 	public void setUp() throws Exception {
+		Assume.assumeTrue("Skipping Drools compilation tests on JDKs without java.lang.Compiler", isLegacyCompilerAvailable());
 		testTarget = new DrlRuleFileBuilder();
+	}
+
+	private boolean isLegacyCompilerAvailable() {
+		try {
+			Class.forName("java.lang.Compiler");
+			return true;
+		} catch (ClassNotFoundException ex) {
+			return false;
+		}
 	}
 
 	@After
